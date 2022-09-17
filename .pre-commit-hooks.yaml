@@ -1,0 +1,37 @@
+- id: php-lint
+  name: PHP Syntax check
+  description: Run `php -l` inside a Docker container
+  entry: php
+  args: ['-l']
+  language: docker
+  files: \.php$
+
+- id: phpcs
+  name: PHP Codesniffer
+  description: Run `phpcs` inside a Docker container
+  entry: phpcs
+  language: docker
+  files: \.php$
+
+- id: phpcbf
+  name: PHP Codesniffer (Code Beutifier and Formatter)
+  description: Run `phpcbf` inside a Docker container
+  entry: phpcbf
+  language: docker
+  files: \.php$
+
+- id: php-cs-fixer
+  name: PHP Coding Standards Fixer
+  description: Run `php-cs-fixer` inside a Docker container
+  entry: php-cs-fixer
+  args: ['fix', '--path-mode=intersection', '--config=.php-cs-fixer.dist.php']
+  language: docker
+  files: \.php$
+
+- id: phpstan
+  name: PHP Static Analysis Tool
+  description: Run `phpstan` inside a Docker container
+  entry: phpstan
+  args: ['analyze']
+  language: docker
+  files: \.php$
